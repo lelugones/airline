@@ -1,13 +1,21 @@
 package com.bd.airline.model;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name="traveler")
 public class Traveler {
 
-//    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_traveler")
+    private Long id;
 
+    @Column(name="name", insertable = true, nullable = false, length = 50, updatable = true)
     private String name;
 
+    @Column(name = "dni", insertable = true, nullable = false, length = 10, updatable = true, unique = true)
     private String dni;
 
     private Date dateOfBirth;
